@@ -1,0 +1,6 @@
+suites:
+  default:
+    namespace: nlxPrivateFiles
+    psr4_prefix: nlxPrivateFiles
+    spec_path: ./
+    src_path: ./
