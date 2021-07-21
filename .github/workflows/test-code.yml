@@ -28,16 +28,16 @@ jobs:
             php-${{ matrix.php-version }}-shopware-
 
       - name: Prepare composer
-        run: . ~/etc/scripts/prepareComposerJson.sh
+        run: ./etc/scripts/prepareComposerJson.sh
 
       - name: Composer install
         run: composer install -n --no-progress
 
       - name: Check coding standards
-        run: . ~/etc/scripts/checkCodingStandards.sh
+        run: ./etc/scripts/checkCodingStandards.sh
 
       - name: Check plugin structure
-        run: . ~/etc/scripts/checkForCorrectPluginStructure.sh
+        run: ./etc/scripts/checkForCorrectPluginStructure.sh
 
       - name: Check coding standards
-        run: ~/vendor/bin/phpspec-standalone.${PHP_VERSION}.phar run --no-code-generation --format=dot
+        run: vendor/bin/phpspec-standalone.${PHP_VERSION}.phar run --no-code-generation --format=dot
