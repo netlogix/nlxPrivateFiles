@@ -9,7 +9,7 @@
                 id="nlx.private_files.subscriber.template_registration"
                 class="nlxPrivateFiles\Subscriber\TemplateRegistration"
         >
-            <argument>%nlx_private_files_loader.plugin_dir%</argument>
+            <argument>%nlx_private_files.plugin_dir%</argument>
             <argument type="service" id="template"/>
             <tag name="shopware.event_subscriber"/>
         </service>
