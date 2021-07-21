@@ -18,6 +18,10 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
 
+      - uses: actions/checkout@v2
+        with:
+          clean: false
+
       - name: Cache composer
         uses: actions/cache@v2
         with:
