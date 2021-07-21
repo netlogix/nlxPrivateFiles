@@ -26,7 +26,9 @@ class PrivateFile extends ModelEntity
      * @var string|null
      *
      * @ORM\Id()
+     *
      * @ORM\GeneratedValue(strategy="NONE")
+     *
      * @ORM\Column(name="id", type="string", nullable=false)
      */
     private $id;
@@ -36,28 +38,28 @@ class PrivateFile extends ModelEntity
      *
      * @ORM\Column(name="name", type="string", nullable=false)
      */
-    private $name = '';
+    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="extension", type="string", nullable=false)
      */
-    private $extension = '';
+    private $extension;
 
     /**
      * @var string
      *
      * @ORM\Column(name="controller_path", type="string", nullable=false)
      */
-    private $controllerPath = '';
+    private $controllerPath;
 
     /**
      * @var string
      *
      * @ORM\Column(name="real_path", type="string", nullable=false)
      */
-    private $realPath = '';
+    private $realPath;
 
     /**
      * @var \DateTime
@@ -89,6 +91,11 @@ class PrivateFile extends ModelEntity
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getExtension(): string
+    {
+        return $this->extension;
     }
 
     public function getControllerPath(): string

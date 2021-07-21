@@ -38,13 +38,13 @@ class Shopware_Controllers_Backend_PrivateFiles extends Shopware_Controllers_Bac
         $this->View()->assign(['success' => true]);
     }
 
-    public function deleteAction()
+    public function deleteAction(): void
     {
         $privateFileId = $this->Request()->getParam('id');
         $privateFile = $this->getManager()->find($this->model, $privateFileId);
         $realPath = $privateFile->getRealPath();
 
-        unlink($realPath);
+        \unlink($realPath);
 
         parent::deleteAction();
     }

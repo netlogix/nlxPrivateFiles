@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 /*
- * Created by solutionDrive GmbH
+ * Created by netlogix GmbH & Co. KG
  *
- * @copyright solutionDrive GmbH
+ * @copyright netlogix GmbH & Co. KG
  */
 
 namespace nlxPrivateFiles\Subscriber;
@@ -35,7 +35,7 @@ class TemplateRegistration implements SubscriberInterface
         ];
     }
 
-    public function onStartDispatch()
+    public function onStartDispatch(): void
     {
         $this->templateManager->addTemplateDir($this->pluginDirectory . '/Resources/views');
     }

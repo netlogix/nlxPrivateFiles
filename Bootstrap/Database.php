@@ -2,14 +2,13 @@
 declare(strict_types=1);
 
 /*
- * Created by solutionDrive GmbH
+ * Created by netlogix GmbH & Co. KG
  *
- * @copyright solutionDrive GmbH
+ * @copyright netlogix GmbH & Co. KG
  */
 
 namespace nlxPrivateFiles\Bootstrap;
 
-use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Tools\SchemaTool;
@@ -23,20 +22,16 @@ class Database
     /** @var SchemaTool */
     private $schemaTool;
 
-    /** @var ObjectRepository $badgeRepository */
-    private $badgeRepository;
-
     public function __construct(EntityManager $entityManager)
     {
         $this->entityManager = $entityManager;
-        $this->badgeRepository = $this->entityManager->getRepository(PrivateFile::class);
         $this->schemaTool = new SchemaTool($this->entityManager);
     }
 
     /**
      * Installs all registered ORM classes
      */
-    public function install()
+    public function install(): void
     {
         $this->schemaTool->updateSchema(
             $this->getClassesMetaData(),
@@ -47,7 +42,7 @@ class Database
     /**
      * Drops all registered ORM classes
      */
-    public function uninstall()
+    public function uninstall(): void
     {
         $this->schemaTool->dropSchema(
             $this->getClassesMetaData()

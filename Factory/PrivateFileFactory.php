@@ -15,7 +15,7 @@ class PrivateFileFactory
 {
     public function create(string $originalFilename, string $originalExtension, string $originalFullName): PrivateFile
     {
-        $uniqId = uniqid();
+        $uniqId = \uniqid();
 
         return new PrivateFile(
             $uniqId,

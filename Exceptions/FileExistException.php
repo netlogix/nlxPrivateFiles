@@ -10,4 +10,5 @@ declare(strict_types=1);
 namespace nlxPrivateFiles\Exceptions;
 
 class FileExistException extends \RuntimeException
-{}
+{
+}

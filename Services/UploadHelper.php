@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace nlxPrivateFiles\Services;
 
+use \Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use nlxPrivateFiles\Exceptions\FileExistException;
 use nlxPrivateFiles\Factory\PrivateFileFactory;
@@ -23,6 +24,7 @@ class UploadHelper
     /** @var PrivateFileFactory */
     private $privateFileFactory;
 
+    /** @var ObjectRepository */
     private $privateFileRepository;
 
     public function __construct(
@@ -37,14 +39,14 @@ class UploadHelper
 
     public function upload(UploadedFile $uploadedFile): void
     {
-        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-        $originalExtension = $uploadedFile->guessClientExtension() !== null ? $uploadedFile->guessClientExtension() : '';
+        $originalFilename = \pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $originalExtension = null !== $uploadedFile->guessClientExtension() ? $uploadedFile->guessClientExtension() : '';
         $originalFullName = $originalFilename . '.' . $originalExtension;
 
         $privateFiles = $this->privateFileRepository->findBy(['name' => $originalFilename, 'extension' => $originalExtension]);
 
         if (false === empty($privateFiles)) {
-            throw new FileExistException(sprintf(
+            throw new FileExistException(\sprintf(
                 'File with the name %s already exists',
                 $originalFullName
             ));
