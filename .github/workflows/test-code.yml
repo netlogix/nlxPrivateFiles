@@ -28,7 +28,9 @@ jobs:
             php-${{ matrix.php-version }}-shopware-
 
       - name: Prepare composer
-        run: ./etc/scripts/prepareComposerJson.sh
+        run: |
+          ls -la
+          ./etc/scripts/prepareComposerJson.sh
 
       - name: Composer install
         run: composer install -n --no-progress
