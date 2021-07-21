@@ -30,6 +30,8 @@ jobs:
       - name: Prepare composer
         run: |
           ls -la
+          echo 'use finde'
+          find scripts
           ./etc/scripts/prepareComposerJson.sh
 
       - name: Composer install
