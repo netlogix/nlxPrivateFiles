@@ -52,7 +52,7 @@ class Shopware_Controllers_Backend_PrivateFiles extends Shopware_Controllers_Bac
     private function uploadFile(UploadedFile $file): void
     {
         try {
-            $uploadHelper = Shopware()->Container()->get('nlx.private_files_loader.services.upload_helper');
+            $uploadHelper = Shopware()->Container()->get('nlx.private_files.services.upload_helper');
 
             $uploadHelper->upload($file);
         } catch (\Throwable $exception) {
