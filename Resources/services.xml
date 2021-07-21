@@ -20,7 +20,7 @@
                 class="nlxPrivateFiles\Services\UploadHelper"
         >
             <argument type="service" id="models"/>
-            <argument type="service" id="nlx.private_files_loader.factory.private_files"/>
+            <argument type="service" id="nlx.private_files.factory.private_file_factory"/>
         </service>
 
         <!-- Factory -->
