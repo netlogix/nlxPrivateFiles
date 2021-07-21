@@ -50,4 +50,4 @@ jobs:
         run: ./etc/scripts/checkForCorrectPluginStructure.sh
 
       - name: Check coding standards
-        run: vendor/bin/phpspec-standalone.${{ matrix.php-version }}.phar run --no-code-generation --format=dot
+        run: vendor/bin/phpspec-standalone.php${{ matrix.php-version }}.phar run --no-code-generation --format=dot
