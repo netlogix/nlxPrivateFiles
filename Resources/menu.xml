@@ -4,13 +4,13 @@
 
     <entries>
         <entry>
-            <name>nlxPrivateFiles</name>
+            <name>nlxPrivateFilesLoader</name>
             <label lang="en">Private files</label>
-            <label lang="de">Private files</label>
+            <label lang="de">Private Dateien</label>
             <controller>PrivateFiles</controller>
             <action>index</action>
-            <class>sprite-application-block</class>
-            <parent identifiedBy="controller">Article</parent>
+            <class>sprite-documents-stack</class>
+            <parent identifiedBy="controller">Content</parent>
         </entry>
     </entries>
 </menu>
