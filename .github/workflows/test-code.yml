@@ -39,9 +39,7 @@ jobs:
         run: ./etc/scripts/prepareComposerJson.sh
 
       - name: Composer install
-        run: |
-          composer -v
-          composer install -n --no-progress
+        run: composer install -n --no-progress
 
       - name: Check coding standards
         run: ./etc/scripts/checkCodingStandards.sh
