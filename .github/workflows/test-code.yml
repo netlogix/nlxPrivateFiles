@@ -4,7 +4,7 @@ on: [ push, pull_request ]
 
 jobs:
   test-code:
-    name: ''
+    name: '[PHP ${{ matrix.php-version }} | Shopware ${{ matrix.shopware-version }}] Tests'
     runs-on: ubuntu-latest
 
     strategy:
