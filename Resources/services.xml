@@ -2,11 +2,32 @@
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <!-- This is just a example! use it, modify it or delete it :) -->
-    <!--<services>
-        <service id="sd.nlxprivatefiles.plugin_config" class="Shopware\Components\Plugin\CachedConfigReader">
-            <factory service="shopware.plugin.cached_config_reader" method="getByPluginName"/>
-            <argument type="string">nlxPrivateFiles</argument>
+
+    <services>
+        <!-- Subscriber -->
+        <service
+                id="nlx.private_files.subscriber.template_registration"
+                class="nlxPrivateFiles\Subscriber\TemplateRegistration"
+        >
+            <argument>%nlx_private_files.plugin_dir%</argument>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
         </service>
-    </services>-->
+
+        <!-- Service -->
+        <service
+                id="nlx.private_files.services.upload_helper"
+                class="nlxPrivateFiles\Services\UploadHelper"
+        >
+            <argument type="service" id="models"/>
+            <argument type="service" id="nlx.private_files.factory.private_file_factory"/>
+        </service>
+
+        <!-- Factory -->
+        <service
+                id="nlx.private_files.factory.private_file_factory"
+                class="nlxPrivateFiles\Factory\PrivateFileFactory"
+        >
+        </service>
+    </services>
 </container>

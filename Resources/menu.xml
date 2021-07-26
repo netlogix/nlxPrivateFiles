@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/menu.xsd">
-    <!-- This is just a example! use it, modify it or delete it :) -->
-    <!--<entries>
+<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.6/engine/Shopware/Components/Plugin/schema/menu.xsd">
+
+    <entries>
         <entry>
-            <name>nlxPrivateFiles</name>
-            <label lang="en">nlxPrivateFiles</label>
-            <label lang="de">nlxPrivateFiles</label>
-            <controller>nlxPrivateFiles</controller>
+            <name>nlxPrivateFilesLoader</name>
+            <label lang="en">Private files</label>
+            <label lang="de">Private Dateien</label>
+            <controller>PrivateFiles</controller>
             <action>index</action>
-            <class>sprite-application-block</class>
-            <parent identifiedBy="controller">Marketing</parent>
+            <class>sprite-documents-stack</class>
+            <parent identifiedBy="controller">Content</parent>
         </entry>
-    </entries>-->
+    </entries>
 </menu>

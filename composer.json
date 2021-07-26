@@ -17,6 +17,11 @@
             "nlxPrivateFiles\\": "."
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\nlxPrivateFiles\\": "./spec"
+        }
+    },
     "require": {
         "php": "^7.2"
     },
