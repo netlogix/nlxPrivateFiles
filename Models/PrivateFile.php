@@ -19,7 +19,7 @@ use Shopware\Components\Model\ModelEntity;
  */
 class PrivateFile extends ModelEntity
 {
-    const CONTROLLER_PATH_PREFIX = 'privateFiles/download/';
+    const CONTROLLER_PATH_PREFIX = 'privateFiles/download/fileId/';
     const REAL_FILE_PATH_PREFIX = 'files/nlxPrivateFiles/';
 
     /**

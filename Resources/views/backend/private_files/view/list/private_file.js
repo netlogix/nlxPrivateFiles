@@ -10,13 +10,18 @@ Ext.define('Shopware.apps.PrivateFiles.view.list.PrivateFile', {
             addButton: false,
             columns: {
                 name: {
-                    header: '{s name="name"}{/s}'
+                    header: '{s name="name"}{/s}',
                 },
                 controllerPath: {
-                    header: '{s name="controllerPath"}{/s}'
+                    header: '{s name="controllerPath"}{/s}',
+                    renderer: this.controllerPathRenderer,
                 },
             }
         };
+    },
+
+    controllerPathRenderer: function (value, meta, record) {
+        return location.hostname + '/' + value;
     },
 
     createActionColumnItems: function () {
@@ -27,7 +32,7 @@ Ext.define('Shopware.apps.PrivateFiles.view.list.PrivateFile', {
             action: 'notice',
             iconCls: 'sprite-documents-stack',
             handler: function (view, rowIndex, colIndex, item, opts, record) {
-                var controllerPath = record.data.controllerPath;
+                var controllerPath = location.hostname + '/' + record.data.controllerPath;
 
                 if (navigator.clipboard) {
                     navigator.clipboard.writeText(controllerPath)
