@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         php-version: [ 7.2, 7.3 ]
-        shopware-version: [ \~5.6 ]
+        shopware-version: [ \~5.6, \~5.7 ]
 
     env:
       SHOPWARE_VERSION: ${{ matrix.shopware-version }}
@@ -47,5 +47,5 @@ jobs:
       - name: Check plugin structure
         run: ./etc/scripts/checkForCorrectPluginStructure.sh
 
-      - name: Check coding standards
+      - name: Run phpspec
         run: vendor/bin/phpspec-standalone.php${{ matrix.php-version }}.phar run --no-code-generation --format=dot
