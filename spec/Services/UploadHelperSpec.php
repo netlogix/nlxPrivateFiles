@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace spec\nlxPrivateFiles\Services;
 
-use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use nlxPrivateFiles\Exceptions\FileExistException;
 use nlxPrivateFiles\Factory\PrivateFileFactory;
@@ -17,6 +16,7 @@ use nlxPrivateFiles\Models\PrivateFile;
 use nlxPrivateFiles\Services\UploadHelper;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Shopware\Components\Model\ModelRepository;
 use spec\nlxPrivateFiles\_mock\UploadedFileTest;
 
 class UploadHelperSpec extends ObjectBehavior
@@ -24,7 +24,7 @@ class UploadHelperSpec extends ObjectBehavior
     public function let(
         EntityManagerInterface $entityManager,
         PrivateFileFactory $privateFileFactory,
-        ObjectRepository $privateFileRepository
+        ModelRepository $privateFileRepository
     ): void {
         $entityManager->getRepository(PrivateFile::class)
             ->willReturn($privateFileRepository);
@@ -40,7 +40,7 @@ class UploadHelperSpec extends ObjectBehavior
     public function it_should_upload_file(
         EntityManagerInterface $entityManager,
         PrivateFileFactory $privateFileFactory,
-        ObjectRepository $privateFileRepository,
+        ModelRepository $privateFileRepository,
         PrivateFile $privateFile
     ): void {
         $originalFilename = 'testName';
@@ -66,7 +66,7 @@ class UploadHelperSpec extends ObjectBehavior
     public function it_should_throw_exception_if_file_exists(
         EntityManagerInterface $entityManager,
         PrivateFileFactory $privateFileFactory,
-        ObjectRepository $privateFileRepository,
+        ModelRepository $privateFileRepository,
         PrivateFile $privateFile
     ): void {
         $originalFilename = 'testName';

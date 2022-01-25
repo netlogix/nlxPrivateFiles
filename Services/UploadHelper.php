@@ -9,11 +9,11 @@ declare(strict_types=1);
 
 namespace nlxPrivateFiles\Services;
 
-use \Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use nlxPrivateFiles\Exceptions\FileExistException;
 use nlxPrivateFiles\Factory\PrivateFileFactory;
 use nlxPrivateFiles\Models\PrivateFile;
+use Shopware\Components\Model\ModelRepository;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UploadHelper
@@ -24,7 +24,7 @@ class UploadHelper
     /** @var PrivateFileFactory */
     private $privateFileFactory;
 
-    /** @var ObjectRepository */
+    /** @var ModelRepository */
     private $privateFileRepository;
 
     public function __construct(
